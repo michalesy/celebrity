@@ -1,12 +1,3 @@
-title: Celebrity Top 1
-description: Berita Selebriti Terkini
-
-# Ini penting agar GitHub tahu kita pakai Jekyll
-markdown: kramdown
-
-# Pengaturan default untuk semua file di folder _posts
-defaults:
-  - scope:
-      path: "_posts"
-    values:
-      layout: "posts"
+theme: minima
+title: Judul Situsku
+description: Deskripsi singkat
