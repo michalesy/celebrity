@@ -1,121 +1,372 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en-US" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Euphoria Rift | Sydney vs Zendaya</title>
-    <!-- Google Fonts for Premium Look -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Sydney Sweeney & Zendaya - Euphoria Drama</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link ke file CSS eksternal -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Custom Cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Background Animation -->
+    <div class="bg-animation"></div>
+    
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">LUXE<span class="dot">.</span>CINEMA</div>
-        <div class="menu-icon">MENU</div>
+    <nav id="navbar">
+        <div class="logo">CELEBRITY TOP 1</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#article">Article</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#comments">Comments</a></li>
+        </ul>
     </nav>
 
-    <!-- Hero Section with Parallax -->
-    <header class="hero">
-        <div class="hero-overlay"></div>
+    <!-- Social Share -->
+    <div class="social-share">
+        <a href="#" class="share-btn" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="share-btn" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="share-btn" title="Share on Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="share-btn" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="hero-content">
-            <h2 class="subtitle fade-in">HOLLYWOOD EXCLUSIVE</h2>
-            <h1 class="main-title split-text">THE<br>EUPHORIA<br>RIFT</h1>
-            <p class="hero-desc fade-in-delay">Sydney Sweeney memicu rumor perseteruan pahit dengan lawan mainnya, Zendaya.</p>
-        </div>
-        <div class="scroll-indicator">
-            <span>SCROLL TO EXPLORE</span>
-            <div class="line"></div>
-        </div>
-    </header>
-
-    <!-- Article Section -->
-    <section class="content-section">
-        <div class="container">
-            <div class="article-header">
-                <span class="category">DRAMA</span>
-                <h2 class="article-title">Bintang Kontroversial & Tuduhan Pengucilan</h2>
+            <div class="hero-text">
+                <span class="category-tag"><i class="fas fa-fire"></i> Breaking News</span>
+                <h1 class="hero-title">Sydney Sweeney Sparks Feud Rumors with Zendaya</h1>
+                <p class="hero-subtitle">
+                    Controversial star Sydney Sweeney has sparked rumors of an alleged 'bitter feud' with her Euphoria co-star Zendaya after excluding her from the Season 3 photo collection.
+                </p>
+                <div class="hero-meta">
+                    <span><i class="far fa-calendar"></i> June 2026</span>
+                    <span><i class="far fa-clock"></i> 5 min read</span>
+                    <span><i class="far fa-eye"></i> 125K views</span>
+                    <span><i class="far fa-heart"></i> 8.5K likes</span>
+                </div>
             </div>
-            
-            <div class="text-block">
-                <p><strong>Sydney Sweeney</strong> terus memicu rumor perseteruan dengan lawan mainnya di <em>Euphoria</em>, Zendaya, dengan menolaknya dari kumpulan foto Musim 3. Setelah final musim hari Minggu, Sweeney membagikan beberapa foto di balik layar yang menampilkan anggota pemeran utama seperti Jacob Elordi, Alexa Demie, Maude Apatow, dan mendiang Eric Dane—namun Zendaya terlihat hilang.</p>
-                
-                <blockquote class="premium-quote">
-                    "Itu disebut ... akting."
-                    <cite>— Sydney Sweeney, membalas kritik perannya sebagai Cassie Howard.</cite>
-                </blockquote>
-
-                <p>Banyak penggemar memuji Sweeney atas penampilannya, sementara yang lain menunjukkan ketidakhadiran Zendaya. "Tidak ada foto dalam tayangan slide ini w zendaya saya bingung..." tulis salah satu netizen.</p>
+            <div class="hero-images">
+                <div class="hero-image-main" onclick="openLightbox(this)">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCBuQhJxBr5Ui3AnOQnMHZ04uq0ZHj0EqpJHKtE6UGiTGz1ZMWUS4dCQore1apsMKx7zRDMf_EBV6uQ_1PX1n4oCcSNPyErpvo1g9lH_2x8z8iZocIDubXlVlOT2ymq2YUf_RxiLcz-5CnUmsiiSiUldSc1va_vVx_ojGRZJsk6D5CKK1ij2QEqcW2btY/s1600/zen.webp" alt="Zendaya">
+                </div>
+                <div class="hero-image-secondary" onclick="openLightbox(this)">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1vxHKZORDS2EUzvieNF0KSVKpNHmNkIOfXaaktJ8tzbLAqVKU4U5wrUvvSsWNSXgSqWEQrshdQqzlsM57JLuO2x2UsJMQOIUi8cy1CcIP4PgsxjEcppI7ft_Xwjwpzg3jTP4817ShXOYsqpnKMzWHhTnKU2abpybkJgJ7axxo9l_34bFhe6jiWhwmjZE/s1600/zend.webp" alt="Sydney Sweeney">
+                </div>
+                <div class="floating-badge">
+                    <h3>EUPHORIA</h3>
+                    <p>Season 3</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 3D Image Slider Section -->
-    <section class="slider-section">
-        <div class="slider-header">
-            <h3>VISUAL ARCHIVE</h3>
-            <p>Geser untuk melihat momen di balik kontroversi</p>
+    <!-- Article Content -->
+    <article class="article-container" id="article">
+        <div class="article-section scroll-reveal">
+            <p class="article-text">
+                Sydney Sweeney continues to fuel feud rumors with her Euphoria co-star Zendaya by excluding her from the Season 3 photo collection. After Sunday's season finale, Sweeney shared several behind-the-scenes photos featuring some of the main cast members.
+            </p>
+            <p class="article-text">
+                Sweeney posed for photos with Jacob Elordi (Nate Jacobs), Alexa Demie (Maddy Perez), Maude Apatow (Lexi Howard), and even shared a photo of the late Eric Dane (Cal Jacobs)—but Zendaya (Rue Bennett) was noticeably absent.
+            </p>
         </div>
-        
-        <div class="scene">
-            <div class="carousel">
-                <!-- Gambar 1: Zen.webp -->
-                <div class="carousel__cell">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCBuQhJxBr5Ui3AnOQnMHZ04uq0ZHj0EqpJHKtE6UGiTGz1ZMWUS4dCQore1apsMKx7zRDMf_EBV6uQ_1PX1n4oCcSNPyErpvo1g9lH_2x8z8iZocIDubXlVlOT2ymq2YUf_RxiLcz-5CnUmsiiSiUldSc1va_vVx_ojGRZJsk6D5CKK1ij2QEqcW2btY/s1600/zen.webp" alt="Zendaya Missing">
-                    <div class="caption">The Absence</div>
-                </div>
-                <!-- Gambar 2: Zend.webp -->
-                <div class="carousel__cell">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1vxHKZORDS2EUzvieNF0KSVKpNHmNkIOfXaaktJ8tzbLAqVKU4U5wrUvvSsWNSXgSqWEQrshdQqzlsM57JLuO2x2UsJMQOIUi8cy1CcIP4PgsxjEcppI7ft_Xwjwpzg3jTP4817ShXOYsqpnKMzWHhTnKU2abpybkJgJ7axxo9l_34bFhe6jiWhwmjZE/s1600/zend.webp" alt="Zendaya Reaction">
-                    <div class="caption">The Star</div>
-                </div>
-                <!-- Gambar 3: Euphoria.webp -->
-                <div class="carousel__cell">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipfXbpsGfyHLvGnxyyppJx8mVj4C1LyUEqwshD88wly0gd8iW_Qe_v2BgX9SyEkDkHVGR58wjYlOdjOjBK2HeKN6uWlvCaeKsAtqyn5h6YxBwEFtDwX689ahSdz4xybo2cIk26ZggTI0UoiV9cL1Zskiy1TLMzN_Jb0YeTvwzRXWsp-izMPtwuJGlsDPw/s1600/euphoria.webp" alt="Cast Tension">
-                    <div class="caption">The Cast</div>
+
+        <div class="highlight-box scroll-reveal">
+            <p>"It's called... acting," she captioned the photos, seemingly responding to criticism of her risqué role as Cassie Howard.</p>
+        </div>
+
+        <div class="image-gallery scroll-reveal" id="gallery">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCBuQhJxBr5Ui3AnOQnMHZ04uq0ZHj0EqpJHKtE6UGiTGz1ZMWUS4dCQore1apsMKx7zRDMf_EBV6uQ_1PX1n4oCcSNPyErpvo1g9lH_2x8z8iZocIDubXlVlOT2ymq2YUf_RxiLcz-5CnUmsiiSiUldSc1va_vVx_ojGRZJsk6D5CKK1ij2QEqcW2btY/s1600/zen.webp" alt="Zendaya">
+                <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">
+                        Zendaya - Lead Actress as Rue Bennett
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="slider-controls">
-            <button id="prevBtn">&lt;</button>
-            <button id="nextBtn">&gt;</button>
-        </div>
-    </section>
-
-    <!-- Deep Dive / Politics Section -->
-    <section class="deep-dive">
-        <div class="container">
-            <div class="grid-layout">
-                <div class="text-col">
-                    <h2>POLITIK & KECEMBURUAN</h2>
-                    <p>Laporan <em>Daily Mail</em> pada November 2025 menyebutkan bahwa keduanya "terkunci dalam perseteruan pahit" yang berasal dari pandangan politik berbeda. Sweeney, pemilih Partai Republik terdaftar, menghadapi kontroversi kampanye denim American Eagle-nya.</p>
-                    <p>Zendaya dilaporkan menolak melakukan pers bersama Sweeney untuk Musim 3. Sumber dalam menyebutkan adanya ketegangan karena Sweeney dianggap memiliki "kepanasan" terhadap tunangan Zendaya, Tom Holland.</p>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1vxHKZORDS2EUzvieNF0KSVKpNHmNkIOfXaaktJ8tzbLAqVKU4U5wrUvvSsWNSXgSqWEQrshdQqzlsM57JLuO2x2UsJMQOIUi8cy1CcIP4PgsxjEcppI7ft_Xwjwpzg3jTP4817ShXOYsqpnKMzWHhTnKU2abpybkJgJ7axxo9l_34bFhe6jiWhwmjZE/s1600/zend.webp" alt="Sydney Sweeney">
+                <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">
+                        Sydney Sweeney - Portrays Cassie Howard
+                    </div>
                 </div>
-                <div class="visual-col">
-                    <div class="glass-card">
-                        <h4>INSIDER INFO</h4>
-                        <p>"Ada larangan total bagi wartawan yang bertanya tentang ketegangan antara Zendaya dan Sydney."</p>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipfXbpsGfyHLvGnxyyppJx8mVj4C1LyUEqwshD88wly0gd8iW_Qe_v2BgX9SyEkDkHVGR58wjYlOdjOjBK2HeKN6uWlvCaeKsAtqyn5h6YxBwEFtDwX689ahSdz4xybo2cIk26ZggTI0UoiV9cL1Zskiy1TLMzN_Jb0YeTvwzRXWsp-izMPtwuJGlsDPw/s1600/euphoria.webp" alt="Euphoria Cast">
+                <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">
+                        Euphoria Cast - April Premiere Event
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="article-section scroll-reveal">
+            <p class="article-text">
+                Many fans praised Sweeney for her performance in the comments section, while others pointed out Zendaya's absence from the photo dump.
+            </p>
+        </div>
+
+        <div class="quote-grid scroll-reveal">
+            <div class="quote-card">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="quote-text">"There are no photos in this slideshow with Zendaya, I'm confused..."</p>
+                <p class="quote-author">- Fan Comment</p>
+            </div>
+            <div class="quote-card">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="quote-text">"Zendaya doesn't like [Sweeney] because of her values."</p>
+                <p class="quote-author">- Fan Theory</p>
+            </div>
+        </div>
+
+        <div class="article-section scroll-reveal">
+            <p class="article-text">
+                However, others argued that Sweeney and Zendaya "barely have any scenes together," explaining why they don't have behind-the-scenes photos.
+            </p>
+        </div>
+
+        <div class="highlight-box scroll-reveal">
+            <p>In November 2025, Daily Mail reported that Sweeney and Zendaya were "locked in a bitter feud" stemming from their differing political views.</p>
+        </div>
+
+        <div class="article-section scroll-reveal">
+            <p class="article-text">
+                Sweeney is a registered Republican voter and caused controversy with her American Eagle denim campaign, which some critics accused of being Nazi propaganda with racist undertones. According to the outlet, Zendaya refused to do press with Sweeney for "Euphoria" Season 3, and both allegedly refused to stand next to each other at events.
+            </p>
+            <p class="article-text">
+                When Sweeney was absent from the Euphoria cast photoshoot in March, it added more fuel to the rumors. However, Page Six was told that the intended shoot was filmed during production when Sweeney happened to be shooting scenes, which is why she wasn't included in the video.
+            </p>
+        </div>
+
+        <div class="stats-section scroll-reveal">
+            <div class="stat-item">
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Seasons</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="2026">0</div>
+                <div class="stat-label">Release Year</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="125">0</div>
+                <div class="stat-label">K+ Views</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Speculation</div>
+            </div>
+        </div>
+
+        <div class="article-section scroll-reveal">
+            <p class="article-text">
+                But the following month, the women appeared to avoid each other at the season premiere—which reportedly didn't surprise some of their colleagues.
+            </p>
+        </div>
+
+        <div class="highlight-box scroll-reveal">
+            <p>"The 'Euphoria' bosses are well aware that the pair don't get along. There has been tension in the past... Their paths barely crossed during the making of Season 3."</p>
+        </div>
+
+        <div class="article-section scroll-reveal">
+            <p class="article-text">
+                "During the press tour, any interaction between the pair was kept to a minimum to avoid awkward encounters on camera. There was a total ban on journalists asking about the tension between Zendaya and Sydney."
+            </p>
+            <p class="article-text">
+                According to the source, their dispute stemmed from Sweeney having a "crush" on Zendaya's fiancé, Tom Holland, and "flirting with him" when he visited the set.
+            </p>
+            <p class="article-text">
+                "It didn't go over well with Zendaya. They haven't really hung out socially since then," they claimed. The insider also noted, "It's a bit of a headache because Zendaya doesn't want to be associated with a Trump supporter."
+            </p>
+        </div>
+    </article>
+
+    <!-- Timeline Section -->
+    <section class="article-container" id="timeline">
+        <h2 class="section-title scroll-reveal">Controversy Timeline</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date"><i class="far fa-calendar-alt"></i> November 2025</div>
+                    <p class="timeline-text">Daily Mail reports bitter feud between Sweeney and Zendaya stemming from political differences.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date"><i class="far fa-calendar-alt"></i> March 2026</div>
+                    <p class="timeline-text">Sweeney absent from Euphoria cast photoshoot, adding fuel to feud rumors.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date"><i class="far fa-calendar-alt"></i> April 2026</div>
+                    <p class="timeline-text">Season 3 premiere - Stars appear to avoid each other at the event.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date"><i class="far fa-calendar-alt"></i> June 2026</div>
+                    <p class="timeline-text">Sweeney shares BTS photos without Zendaya, reigniting feud speculation.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
     </section>
 
+    <!-- Related Articles -->
+    <section class="article-container related-section">
+        <h2 class="section-title scroll-reveal">Related Articles</h2>
+        <div class="related-grid">
+            <div class="related-card scroll-reveal">
+                <div class="related-image">🎬</div>
+                <div class="related-content">
+                    <div class="related-category">Entertainment</div>
+                    <h3 class="related-title">Behind the Scenes: Euphoria Season 3 Production</h3>
+                    <div class="related-meta"><i class="far fa-clock"></i> 3 days ago</div>
+                </div>
+            </div>
+            <div class="related-card scroll-reveal">
+                <div class="related-image">⭐</div>
+                <div class="related-content">
+                    <div class="related-category">Celebrity</div>
+                    <h3 class="related-title">Zendaya's Journey: From Disney to Hollywood Icon</h3>
+                    <div class="related-meta"><i class="far fa-clock"></i> 1 week ago</div>
+                </div>
+            </div>
+            <div class="related-card scroll-reveal">
+                <div class="related-image">🔥</div>
+                <div class="related-content">
+                    <div class="related-category">Drama</div>
+                    <h3 class="related-title">Top 10 Most Controversial Moments in TV History</h3>
+                    <div class="related-meta"><i class="far fa-clock"></i> 2 weeks ago</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section class="article-container comments-section" id="comments">
+        <h2 class="section-title scroll-reveal">Comments</h2>
+        
+        <div class="comment-form scroll-reveal">
+            <textarea class="comment-input" placeholder="Write your comment here..."></textarea>
+            <button class="comment-btn"><i class="fas fa-paper-plane"></i> Post Comment</button>
+        </div>
+
+        <div class="comment-list">
+            <div class="comment-item scroll-reveal">
+                <div class="comment-avatar">👤</div>
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-name">Sarah Johnson</span>
+                        <span class="comment-time">2 hours ago</span>
+                    </div>
+                    <p class="comment-text">Wow, this is really surprising! I didn't expect there to be tension like this between them. Hope everything is okay. 🙏</p>
+                </div>
+            </div>
+
+            <div class="comment-item scroll-reveal">
+                <div class="comment-avatar">👤</div>
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-name">Michael Chen</span>
+                        <span class="comment-time">5 hours ago</span>
+                    </div>
+                    <p class="comment-text">I think this is just rumors. They're both professionals and can surely maintain a good working relationship. Don't judge too quickly! 💯</p>
+                </div>
+            </div>
+
+            <div class="comment-item scroll-reveal">
+                <div class="comment-avatar">👤</div>
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-name">Emma Rodriguez</span>
+                        <span class="comment-time">1 day ago</span>
+                    </div>
+                    <p class="comment-text">As an Euphoria fan, I hope this drama doesn't affect the quality of the next season. What matters is their acting stays amazing! 🎭</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p>&copy; 2026 LUXE CINEMA. All Rights Reserved.</p>
-            <p class="disclaimer">Artikel ini berdasarkan rumor dan laporan media hiburan.</p>
+            <div class="footer-section">
+                <h3>CELEBRITY TOP 1</h3>
+                <p>Your trusted source for the latest news about celebrity culture, entertainment, and Hollywood stars. We deliver quality content with in-depth analysis.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home"><i class="fas fa-chevron-right"></i> Home</a>
+                <a href="#article"><i class="fas fa-chevron-right"></i> Article</a>
+                <a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a>
+                <a href="#timeline"><i class="fas fa-chevron-right"></i> Timeline</a>
+                <a href="#comments"><i class="fas fa-chevron-right"></i> Comments</a>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <a href="#"><i class="fas fa-chevron-right"></i> Entertainment</a>
+                <a href="#"><i class="fas fa-chevron-right"></i> Celebrity News</a>
+                <a href="#"><i class="fas fa-chevron-right"></i> TV Shows</a>
+                <a href="#"><i class="fas fa-chevron-right"></i> Behind the Scenes</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> info@celebritytop1.com</p>
+                <p><i class="fab fa-twitter"></i> @CelebrityTop1</p>
+                <p><i class="fab fa-instagram"></i> @celebrity.top1</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Celebrity Top 1. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></div>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    </div>
+
+    <!-- Link ke file JS eksternal -->
     <script src="script.js"></script>
 </body>
 </html>
