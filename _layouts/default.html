@@ -1,145 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | {{ site.title }}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f5f5f5; line-height: 1.6; }
-        
-        .header {
-            background: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #000;
-            text-decoration: none;
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .hero p { font-size: 1.1rem; opacity: 0.9; }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-        .post-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); }
-        
-        .card-image {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .card-content { padding: 1.5rem; }
-        .tag {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-        .card h2 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-        }
-        .card h2 a {
-            color: #000;
-            text-decoration: none;
-        }
-        .card h2 a:hover { color: #667eea; }
-        .card p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        .read-btn {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .footer {
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        
-        /* Post Page Styles */
-        .post-content {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-        }
-        .post-content h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .post-meta {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
-        }
-        .post-content img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .post-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
+{% include head.html %}
 <body>
-    <header class="header">
-        <a href="{{ '/' | relative_url }}" class="logo">CELEBRITY TOP 1</a>
-    </header>
-    
-    {{ content }}
-    
-    <footer class="footer">
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
-    </footer>
+  {% include header.html %}
+  <div class="page-wrap">
+    <main role="main">
+      <div class="flex-grid">
+        {% for post in site.posts %}
+        <article class="main-articles">
+           {% if post.img %}
+              <a href="{{post.url | prepend: site.baseurl}}"><img class="post-image" src={{ "/assets/images/" | prepend: site.baseurl | append: post.img }} alt="{{post.title}}"></a>
+           {% endif %}
+            <div class="post-content">
+              <div class="wrap-content">
+                <header class="header-article">
+                  <h2><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
+                  <div class="byline"><span><i class="fa fa-calendar-o" aria-hidden="true"></i> {{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;</span><span><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{post.author}}</span></div>
+                </header>
+                <p>{{post.description}}</p>
+              </div>
+            </div>
+        </article>
+        {% endfor %}
+      </div>
+    </main>
+  </div>
+{% include footer.html %}
+{% include javascripts.html %}
 </body>
 </html>
