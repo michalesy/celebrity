@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. CORE VARIABLES & RESET --- */
+        /* --- CORE VARIABLES & RESET --- */
         :root {
             --primary: #ff6b35;
             --secondary: #d4af37;
@@ -33,22 +33,17 @@
             min-height: 100vh;
         }
 
-        /* --- 2. SUNSET MOUNTAIN BACKGROUND ART (CSS ONLY) --- */
+        /* --- BACKGROUND ART (CSS ONLY) --- */
         .background-art {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
             background: linear-gradient(to bottom, #2b1055, #7597de);
             overflow: hidden;
         }
-        
-        /* Sun */
         .sun {
             position: absolute; bottom: 30%; left: 50%; transform: translateX(-50%);
             width: 150px; height: 150px; background: linear-gradient(to top, #ff6b35, #ffd700);
-            border-radius: 50%; box-shadow: 0 0 60px #ff6b35, 0 0 100px #ff4500;
-            opacity: 0.9;
+            border-radius: 50%; box-shadow: 0 0 60px #ff6b35, 0 0 100px #ff4500; opacity: 0.9;
         }
-        
-        /* Mountains */
         .mountain {
             position: absolute; bottom: 0; width: 100%; height: 40%;
             background: linear-gradient(to top, #0f0c29, #302b63);
@@ -61,14 +56,11 @@
             z-index: 0; opacity: 1;
         }
 
-        /* Canvas for Floating Particles */
         #particle-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;
         }
 
-        /* --- 3. UI COMPONENTS --- */
-        
-        /* Reading Progress Bar */
+        /* --- UI COMPONENTS --- */
         .progress-bar {
             position: fixed; top: 0; left: 0; height: 3px; 
             background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
@@ -78,7 +70,6 @@
         }
         @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 
-        /* Header */
         .premium-header {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             background: rgba(15, 12, 41, 0.7); backdrop-filter: blur(15px);
@@ -90,7 +81,6 @@
             background: linear-gradient(90deg, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* Hero Section */
         .hero-section { padding: 12rem 2rem 6rem; text-align: center; position: relative; z-index: 1; }
         .hero-title {
             font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;
@@ -98,29 +88,25 @@
         }
         .hero-subtitle { font-size: 1.2rem; color: var(--text-sub); max-width: 600px; margin: 0 auto; }
 
-        /* --- 4. CARD WITH RGB BORDER ANIMATION --- */
+        /* --- CARD STYLES --- */
         .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 2rem 8rem; position: relative; z-index: 1; }
         .post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; perspective: 1000px; }
 
-        /* The Card Container */
         .card-wrapper {
             position: relative; width: 100%; height: 100%; border-radius: 24px;
             overflow: hidden; transition: var(--transition-smooth);
-            transform-style: preserve-3d;
+            transform-style: preserve-3d; opacity: 0; transform: translateY(30px); /* Initial state for animation */
         }
+        .card-wrapper.visible { opacity: 1; transform: translateY(0); } /* Triggered by JS */
 
-        /* The RGB Spinning Border Effect */
         .card-wrapper::before {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: conic-gradient(#fd004c, #fe9000, #fff020, #3edf4b, #3363ff, #b102b7, #fd004c);
-            animation: spin 4s linear infinite;
-            z-index: 0; opacity: 0; transition: opacity 0.3s;
+            animation: spin 4s linear infinite; z-index: 0; opacity: 0; transition: opacity 0.3s;
         }
         .card-wrapper:hover::before { opacity: 1; }
-        
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* The Inner Card Content (Glassmorphism) */
         .post-card {
             position: relative; width: 100%; height: 100%; background: rgba(20, 20, 30, 0.85);
             backdrop-filter: blur(20px); border-radius: 20px; z-index: 1;
@@ -151,10 +137,8 @@
         }
         .read-more:hover { gap: 12px; color: #fe9000; }
 
-        /* Footer */
         .premium-footer { text-align: center; padding: 3rem; color: #666; font-size: 0.8rem; position: relative; z-index: 1; }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero-section { padding: 8rem 1.5rem 4rem; }
             .post-grid { grid-template-columns: 1fr; }
@@ -187,55 +171,10 @@
         <p class="hero-subtitle">Experience the future of digital storytelling with immersive depth and vibrant aesthetics.</p>
     </section>
 
-    <!-- Main Content -->
+    <!-- Main Content (Dynamic) -->
     <main class="content-wrapper">
-        <div class="post-grid">
-            
-            <!-- Card 1 -->
-            <div class="card-wrapper">
-                <article class="post-card">
-                    <div class="card-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" alt="Post">
-                    </div>
-                    <div class="card-body">
-                        <span class="post-tag">Breaking News</span>
-                        <h2 class="post-title"><a href="#">Sydney Sweeney & Zendaya</a></h2>
-                        <p class="post-snippet">Exploring the cinematic journey of today's top celebrities and their impact on modern fashion...</p>
-                        <a href="#" class="read-more">Read Article →</a>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="card-wrapper">
-                <article class="post-card">
-                    <div class="card-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Post">
-                    </div>
-                    <div class="card-body">
-                        <span class="post-tag">Lifestyle</span>
-                        <h2 class="post-title"><a href="#">Red Carpet 2026</a></h2>
-                        <p class="post-snippet">An exclusive look at the preparations and styles that defined this year's most anticipated event...</p>
-                        <a href="#" class="read-more">Read Article →</a>
-                    </div>
-                </article>
-            </div>
-
-             <!-- Card 3 -->
-             <div class="card-wrapper">
-                <article class="post-card">
-                    <div class="card-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="Post">
-                    </div>
-                    <div class="card-body">
-                        <span class="post-tag">Tech & Media</span>
-                        <h2 class="post-title"><a href="#">Digital Luxury</a></h2>
-                        <p class="post-snippet">How social media algorithms are reshaping the definition of celebrity in the digital age...</p>
-                        <a href="#" class="read-more">Read Article →</a>
-                    </div>
-                </article>
-            </div>
-
+        <div class="post-grid" id="dynamic-posts">
+            <!-- Kartu akan dimuat di sini oleh JavaScript -->
         </div>
     </main>
 
@@ -244,7 +183,79 @@
     </footer>
 
     <script>
-        // --- 1. PARTICLE SYSTEM (Floating Dust) ---
+        // --- 1. DYNAMIC DATA LOADING ---
+        async function loadPosts() {
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const posts = await response.json();
+                
+                const container = document.getElementById('dynamic-posts');
+                container.innerHTML = ''; // Clear loading state
+
+                posts.forEach((post, index) => {
+                    const cardHTML = `
+                        <div class="card-wrapper" style="animation-delay: ${index * 0.1}s">
+                            <article class="post-card">
+                                <div class="card-image-wrap">
+                                    <img src="${post.image}" alt="${post.title}" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <span class="post-tag">${post.tag}</span>
+                                    <h2 class="post-title"><a href="${post.link}">${post.title}</a></h2>
+                                    <p class="post-snippet">${post.snippet}</p>
+                                    <a href="${post.link}" class="read-more">Read Article →</a>
+                                </div>
+                            </article>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', cardHTML);
+                });
+
+                // Re-initialize animations after content loads
+                initCardAnimations();
+                initObserver();
+
+            } catch (error) {
+                console.error('Error loading posts:', error);
+                document.getElementById('dynamic-posts').innerHTML = '<p style="text-align:center; color:#fff;">Failed to load content. Please check data.json</p>';
+            }
+        }
+
+        // --- 2. ANIMATION INITIALIZERS ---
+        function initCardAnimations() {
+            // Scroll Reveal Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.card-wrapper').forEach(card => observer.observe(card));
+
+            // Magnetic Tilt Effect
+            document.querySelectorAll('.card-wrapper').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const xRot = ((y - rect.height / 2) / rect.height) * -10;
+                    const yRot = ((x - rect.width / 2) / rect.width) * 10;
+                    card.style.transform = `perspective(1000px) rotateX(${xRot}deg) rotateY(${yRot}deg) scale(1.02)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                });
+            });
+        }
+
+        function initObserver() {
+            // This is handled inside initCardAnimations now
+        }
+
+        // --- 3. PARTICLE SYSTEM ---
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particlesArray;
@@ -259,7 +270,7 @@
                 this.size = Math.random() * 2 + 0.5;
                 this.speedX = Math.random() * 0.5 - 0.25;
                 this.speedY = Math.random() * 0.5 - 0.25;
-                this.color = `rgba(255, 215, 0, ${Math.random() * 0.5})`; // Gold dust
+                this.color = `rgba(255, 215, 0, ${Math.random() * 0.5})`;
             }
             update() {
                 this.x += this.speedX;
@@ -277,9 +288,7 @@
 
         function initParticles() {
             particlesArray = [];
-            for (let i = 0; i < 50; i++) {
-                particlesArray.push(new Particle());
-            }
+            for (let i = 0; i < 50; i++) particlesArray.push(new Particle());
         }
 
         function animateParticles() {
@@ -297,10 +306,7 @@
             initParticles();
         });
 
-        initParticles();
-        animateParticles();
-
-        // --- 2. SCROLL PROGRESS & TILT EFFECT ---
+        // --- 4. SCROLL PROGRESS ---
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -308,19 +314,11 @@
             document.getElementById("progressBar").style.width = scrolled + "%";
         });
 
-        // Magnetic Tilt for Cards
-        document.querySelectorAll('.card-wrapper').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const xRot = ((y - rect.height / 2) / rect.height) * -10;
-                const yRot = ((x - rect.width / 2) / rect.width) * 10;
-                card.style.transform = `perspective(1000px) rotateX(${xRot}deg) rotateY(${yRot}deg) scale(1.02)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-            });
+        // Initialize Everything
+        document.addEventListener('DOMContentLoaded', () => {
+            initParticles();
+            animateParticles();
+            loadPosts(); // Load JSON data
         });
     </script>
 </body>
